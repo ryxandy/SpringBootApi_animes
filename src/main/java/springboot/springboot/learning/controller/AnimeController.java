@@ -1,4 +1,6 @@
 package springboot.springboot.learning.controller;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +16,11 @@ import java.util.List;
 @RestController
 @RequestMapping("anime")
 @Log4j2
+@RequiredArgsConstructor
+//RequiredterArgs creates a constructor in final fields
 public class AnimeController {
 
-    @Autowired
-    private DateUtil dateUtil;
+    private final DateUtil dateUtil;
 
     @GetMapping(path ="listar")
     public List<Anime> Listar(){
